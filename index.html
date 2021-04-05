@@ -1,0 +1,237 @@
+@charset "utf-8";
+
+*{
+	box-sizing:border-box;
+}
+
+html {/* スムーススクロールでページ内リンクが可能*/
+    scroll-behavior: smooth;
+}
+body {/* 背景色・文字色・文字サイズ */
+	background-color: yellow;
+	color: blue;
+	font-size: 20px;
+}
+
+nav{/* ハンバーガーメニューの土台*/
+  width: 35px;
+  height: 35px;
+  background-color: #ccc;
+  border-radius:10px 0;/* 角丸め */
+  cursor: pointer;/*指カーソル: */
+  position: fixed;/*位置固定 */
+  top: 10px;
+  right: 10px;
+ }
+ 
+ nav span,
+ nav span:before, 
+ nav span:after{/* 三本線 */
+ width: 30px;
+ height: 3px;
+ background-color: #333;
+ display:block;
+ content:"";
+ /*全くの無でなく、文字列がないという意味 */
+ position:absolute;/*絶対値*/
+ top: 2.5px;
+ left: 2.5px;
+ } 
+
+
+ nav span:before {/*二本目（contentプロパティは上で必要）*/
+  top: 13px;
+  left: 0;
+  }
+  
+  nav span:after{/*三本目（contentプロパティは上で必要）*/
+  top: 26px;
+  left: 0;
+}  
+
+#open-close{/*ハンバーガーメニューのチェックボックスなし*/
+ display: none;
+}
+#menu {/*ulの初期表示（枠外の表示）*/
+ margin: 35px 0 0 0;/*margin-top: 0;でも同じ意味*/
+ padding: 0 10px;-
+ list-style-type; none;
+ position: fixed;
+ right: -300px;
+ z-index: 99999;
+ 
+ }
+#open-close:checked ~ #menu{
+/* チェックボックスが入っているときリストを表示 */
+ transition: all 300ms 0s ease;
+ transform: translate(-300px);
+
+
+#menu a {
+ padding: 3px 10px;
+ display block;
+ background-color: lightgreen;
+ color: #333;
+ text-align: center;
+ text-decoration: none;/* リンクの下線ナシ*/
+ border-bottom: 1px solid #999; 
+ }
+
+#menu a:hover{/*マウスホバー時のリンクデザイン*/
+  background-color: yellow;
+   color: #fff;
+   }
+
+
+section {
+	border: 10px solid #000;
+	margin: 20px ;
+}
+
+article {
+	border: 5px dotted rgba(255,0,0,0.8);
+	width: 90%;
+	margin: 50px auto;
+}	
+
+#html {
+	color: blue;
+	background-color:pink;
+}
+
+#html span {
+	color: #f00;
+	font-weight: bold;
+}
+
+#marker {
+	list-style-type: lower-greek;
+}
+
+dl {
+     border: 5px solid #000;
+}
+
+dt,
+dd {
+      border-bottom: 2px solid #000;
+}
+
+dd {
+       margin-left: 0;
+       text-indent: 1em;
+ }
+
+dd: last-of-type {/* ddの最後の要素だけ */}
+    border: none;
+    /* 枠線をなし */
+  }
+
+  #vege {/* 野菜テーブルの外枠　*/
+     border: 6px solid #000;
+     border-collapse: collapse;
+  }
+		
+		#vege th,
+		#vege td{/* セルの枠線 */
+     border: 1px solid #000;
+	}
+	#vege tr:nth-of-type(odd) {/*奇数行に背景色　*/
+              background-color: lightgreen;
+   }
+
+
+#gotop { /* #gotopの配置部分 */
+    position: fixed;
+    right: 100px;
+    bottom: 100px; 
+}
+
+#gotop a {/* #gotop a のデザイン */
+ display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+}
+
+	@media (min-width: 600px) {
+   body {
+           background-color: pink;
+   }
+ 
+ label{for="open-close"}{/* 属性セレクタ */}  
+   visivility: hidden;
+ 
+ 
+   nav {/*labelの子要素として部分的に見せる状態 */
+		    position: static; /*初期指定*/
+		    width: 100%;/* 横幅いっぱい */
+		    background-color: #fff;
+		    margin: 0;
+		    visibility: visible;/* navを部分的に表示 
+ 
+ }
+ 
+  nav span,
+  nav span:before
+  nav span:after {/* 三本線ナシ */}
+   display: none;
+ }
+ 
+ #memu { /*ulを横並び */}
+  position: static;
+  display: flex;
+  justify-content: space-around; /* 均等割付 */
+   padding: 0;
+}
+
+ #menu li{ /* リストアイテムのサイズと枠線 */
+  wifth: 33.3%
+  border-top: 1px solid #999;
+  border-left: 1px solid #999;
+
+
+#memu li:list-of-type { /* 最後のリストアイテムに右枠線 */
+ border-right: 1px solid #999;
+}
+ 
+  dl {/* 複数段扱いの横並び */
+        display: fiex; 
+        frex-wrap: wrap;
+  }
+  
+   dt{/* 割合でサイズを決定 */
+          width: 30%;
+  }
+  
+  dd{/* 割合でサイズを決定 */
+         width: 70%;
+  }
+  
+  dt{/* 数値で固定 */
+       width: 200px
+  }
+  
+  /* {参考} 可変（自動なので３列４列表示にも）*/
+  /* 
+      dd {
+                  flex: 1;
+           }
+    */
+    
+  dd{
+        width: calc(100％ - 200px);
+   }
+  
+  
+  dt:last-of-type {/* 線をナシ */
+        border: none;
+
+
+
+
